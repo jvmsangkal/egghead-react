@@ -28,8 +28,20 @@ class App extends React.Component {
 
     // -- Lifecycle Methods --
     //componentWillMount - when the component is ready to mount on the dom
+    //   - does not have access to the dom. only in state and props
+
     //componentDidMount - when component is mounted on the dom
+    //   - has access to the dom (duh)
+
     //componentWillUnmount - when component is about to get removed to the dom
+    //   - clean up processes
+
+    //componentWillReceiveProps(nextProps) - when component receives updated properties from the parent
+
+    //shouldComponentUpdate(nextProps, nextState) - returns boolean
+    //    - useful when you are controlling when the component will be rerendered
+
+    // componentDidUpdate(prevProps, prevState) - called after component rerendered and received new props
 
     update (e) {
         this.setState({txt: e.target.value});
