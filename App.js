@@ -26,6 +26,11 @@ class App extends React.Component {
         return {txt: 'Default txt'};
     }
 
+    // -- Lifecycle Methods --
+    //componentWillMount - when the component is ready to mount on the dom
+    //componentDidMount - when component is mounted on the dom
+    //componentWillUnmount - when component is about to get removed to the dom
+
     update (e) {
         this.setState({txt: e.target.value});
     }
@@ -78,6 +83,8 @@ class Slider extends React.Component {
 
 // stateles function component
 // const App = () => <div>Hello World</div>
+
+// use this.props.children to access child elements pass by the parent
 
 ReactDOM.render(<App cat={5} txt="Hello World"/>, document.getElementById('app'));
 
