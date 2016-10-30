@@ -12,6 +12,7 @@ class App extends React.Component {
         };
 
         this.update = this.update.bind(this);
+        this.updateColors = this.updateColors.bind(this);
     }
 
     static get propTypes () {
@@ -29,16 +30,44 @@ class App extends React.Component {
         this.setState({txt: e.target.value});
     }
 
+    updateColors () {
+        this.setState({
+            red: ReactDOM.findDOMNode(this.refs.red).value,
+            green: ReactDOM.findDOMNode(this.refs.green).value,
+            blue: ReactDOM.findDOMNode(this.refs.blue).value,
+        });
+    }
+
     render () {
         return (
             <div>
-                {this.state.txt}
+                <h5>{this.state.txt}</h5>
                 <input type="text" onChange={this.update} />
+                <hr/>
+                <Slider ref="red" update={this.updateColors} />
+                {this.state.red}
+                <hr/>
+                <Slider ref="green" update={this.updateColors} />
+                {this.state.green}
+                <hr/>
+                <Slider ref="blue" update={this.updateColors} />
+                {this.state.blue}
+                <hr/>
             </div>
         )
     }
 }
 
+class Slider extends React.Component {
+    render () {
+        return (
+            <input type="range"
+                min="0"
+                max="255"
+                onChange={this.props.update} />
+        );
+    }
+}
 // another way of defining proptypes
 // App.propTypes = {}
 // App.defaultProps = {}
