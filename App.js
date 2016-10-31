@@ -94,7 +94,7 @@ class Slider extends React.Component {
 // App.defaultProps = {}
 
 // stateles function component
-// const App = () => <div>Hello World</div>
+// const App = (props) => <div>Hello World</div>
 
 // use this.props.children to access child elements pass by the parent
 
