@@ -12,6 +12,7 @@
 */
 
 // sample reducer
+// - reducers can be divided to many reducers
 const counter = (state=0, action) => { // add a default value as the initial state
     switch (action.type) {
         case 'INCREMENT':
