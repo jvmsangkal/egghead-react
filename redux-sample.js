@@ -28,12 +28,26 @@ import {createStore} from 'redux';
 
 const store = createStore(counter); //accept function as reducer
 // calls a dummy dispatch action to get the reducer return the default state
+// has a second arguement, persistedState
 
 store.getState(); // gets the current state of the redux store
 store.dispatch({ type: 'INCREMENT' }); //dispatches action to the reducer
 
-// returns a function to unsubscribe
-store.subscribe(() => {
+componentDidMount () {
+    // returns a function to unsubscribe
+    this.unsubscribe = store.subscribe(() => {
+        this.forceUpdate(); //forces the component to rerender
+    }); // accepts a callback function to reflect the current application state
+}
 
-}); // accepts a callback function to reflect the current application state
+componentWillUnmount () {
+    this.unsubscribe();
+}
 
+render () {
+    const state = store.getState();
+}
+
+/*
+    react-redux provides a connect() function to automatically subscribe the component to the store
+*/
